@@ -1,7 +1,7 @@
 <?php
 
-require_once 'ArticleProvider.php';
-require_once 'HTMLFormatter.php';
+require_once __DIR__.'/../src/ArticleProvider.php';
+require_once __DIR__.'/../src/HTMLFormatter.php';
 
 $provider = new ArticleProvider();
 $article = $provider->getArticle($_SERVER['REQUEST_URI']);
