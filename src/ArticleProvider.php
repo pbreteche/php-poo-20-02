@@ -2,6 +2,7 @@
 
 class ArticleProvider
 {
+    public const HTTP_NOT_FOUND = 404;
     private $articles;
 
     public function __construct()
@@ -17,7 +18,7 @@ class ArticleProvider
                 return $article;
             }
         }
-        http_response_code(404);
+        http_response_code(self::HTTP_NOT_FOUND);
         return [
             'title' => 'Article non-trouvé',
             'content' => 'Merci de retourner à la page d\'accueil',
