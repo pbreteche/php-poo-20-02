@@ -8,10 +8,11 @@ class HTMLFormatter
 <!Doctype>
 <html>
 <head>
-    <title>$article</title>
+    <title>{$article['title']}</title>
 </head>
 <body>
-    <h1>$article</h1>
+    <h1>{$article['title']}</h1>
+    <div>{$article['content']}</div>
 </body>
 </html>
 EOT;

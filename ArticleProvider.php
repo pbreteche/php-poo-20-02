@@ -2,13 +2,24 @@
 
 class ArticleProvider
 {
+    private $articles;
 
-    public function getArticle()
+    public function __construct()
     {
-        if ($_SERVER['REQUEST_URI'] === '/premier-article') {
-            return 'Mon premier article';
+        $this->articles = include 'article_list.php';
+    }
+
+    public function getArticle(string $slug)
+    {
+        foreach($this->articles as $article) {
+            if ($article['slug'] == $slug) {
+                return $article;
+            }
         }
         http_response_code(404);
-        return 'Article non-trouvé';
+        return [
+            'title' => 'Article non-trouvé',
+            'content' => 'Merci de retourner à la page d\'accueil',
+        ];
     }
 }
